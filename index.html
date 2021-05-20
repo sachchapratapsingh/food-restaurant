@@ -1,0 +1,905 @@
+<!doctype html>
+<html>
+<head>
+ <title>Abhiraj's food</title>
+ <meta charset="utf-8" />
+ <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+ <style type="text/css">
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+    }
+    body{
+        width:100%;
+        height:100vh;
+        background-image: linear-gradient(to right bottom,rgba(98, 199, 98, 0.973),rgba(61, 194, 228, 0.959));
+        cursor: url(http://www.rw-designer.com/cursor-extern.php?id=53223),auto;
+    }
+    .navbar ul{
+        display: inline;
+        list-style: none;
+        
+        
+    }
+    .navbar li{
+        display: inline-block;
+        padding: 30px;
+        cursor:pointer;
+        font-size: 2em;
+        color:rgb(128, 90, 20);
+       
+    }
+    .navbar{
+        padding: 0;
+        margin: 0;
+        
+        display: flex;
+        justify-content: center;
+    }
+    .content{
+        font-size: 2rem;
+        top: 27vh;
+        left: 10%;
+        width: 33%;
+        font-style: oblique;
+    }
+    .content h1{
+        font-family:'Courier New', Courier, monospace;
+        font-size:4em ;
+        margin: 0;
+        padding-top: 0.6em;
+        background: linear-gradient(to left,rgb(218, 36, 97),rgb(243, 121, 21));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        display: inline;
+        animation-name: moveInLeft;
+        animation-duration: 1s;
+        animation-timing-function: ease-in-out;
+    }
+    @keyframes moveInLeft{
+        0%{
+            opacity: 0;
+            transform: translateX(100px);
+        }
+        80%{
+            transform: translateX(-10px);
+        }
+        100%{
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+    .content p{
+        position:absolute;
+        margin: 0.3em;
+        font-size:1em ;
+        background: linear-gradient(to left,rgb(99, 45, 170),rgb(224, 83, 65));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        display: inline;
+
+    }
+
+    .headimg{
+        padding: 0;;
+        position:absolute;
+        bottom: 13%;
+        right:0;
+        width:50%;
+        height:75%;
+        animation: animate 1s ease-in-out;
+        border-radius: 1em;
+    }
+    @keyframes animate{
+        0%{
+            opacity: 0;
+            transform: scale(0.5);
+        }
+        100%{
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+    .logo{
+        position: absolute;
+        top:4%;
+        left:15%;
+    }
+    .btn:link,.btn:visited{
+        
+        text-decoration: none;
+        padding: 15px 40px;
+        display: inline-block;
+        border-radius: 100px;
+        transition:all 0.2s;
+        position: relative;
+    }
+    .btn-1{
+        margin:100px;
+        position:absolute;
+        top:60%;
+        background-color: rgb(202, 95, 68);
+        color:rgb(19, 18, 18) ;
+    }
+    .btn:hover{
+        transform:translateY(-3px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+    .btn:active{
+        transform:translateY(-1px);
+        box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+    }
+    .btn::after{
+        content:" ";
+        display: inline-block;
+        height:100%;
+        width:100%;
+        border-radius: 100px;
+        position:absolute;
+        top:0;
+        left:0;
+        z-index:-1;
+        transition: all .4s;
+    }
+    .btn-1::after{
+        background-color:rgb(202, 95, 68) ;
+    }
+    .btn:hover::after{
+        transform:scaleX(1.4) scaleY(1.6);
+        opacity:0;
+    }
+    #speciality{
+        background-color: wheat;
+        padding:10.5rem 0;
+    }
+    .heading{
+        
+        font-weight: bold;
+        font-family:'Courier New', Courier, monospace;
+        font-size:4.5em ;
+        background: linear-gradient(to left,rgb(218, 36, 97),rgb(243, 121, 21));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        display: inline-block;
+        position:absolute;
+        top: 100%;
+        left: 30%;
+        transition: all 0.2s;
+    }
+    .heading:hover{
+        transform: skewY(2deg) skewX(15deg) scale(1.1);
+        text-shadow: .5rem 1 rem 2 rem rgba(0,0,0,0.8);
+    }
+
+    html{
+        scroll-behavior: smooth;
+    }
+    .spec{
+        padding:20rem 0;
+        background-image: linear-gradient(to right bottom,rgb(98, 199, 98),rgba(61, 194, 228, 0.959));
+        background-size:cover;
+        transform: skewY(-7deg);
+        
+    }
+    .spec>*{
+        transform: skewY(+7deg);
+    }
+
+    .feature-box{
+        background-color: rgba(245, 222, 179, 0.575);
+        font-size: 1.5rem;
+        padding: 3.5rem;
+        text-align:center;
+        border-radius:0 1.5rem 4rem rgba(0,0,0,0.2);
+        transition: transform .3s;
+        display:inline-block;
+    }
+    .feature-box:hover{
+        
+        transform:translateY(-1.5rem) scale(1.03);
+    }
+    .row {
+  max-width: 120rem;
+  margin: 0 auto;
+}
+.row:not(:last child) {
+  margin-bottom: 8rem;
+}
+.row::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.row [class^=col-] {
+  float: left;
+}
+.row [class^=col-]:not(:last-child) {
+  margin-right: 6rem;
+}
+.row .col-1-of-2 {
+  width: calc((100% - 6rem/2));
+}
+.row .col-1-of-3 {
+  width: calc((100% - 2*6rem)/4);
+}
+.row .col-2-of-3 {
+  width: calc(2*((100% - 2*6rem)/3) + 6rem);
+}
+.row .col-1-of-4 {
+  width: calc((100% -3*6rem)/6);
+}
+.row .col-2-of-4 {
+  width: calc(2*((100% - 3*6rem)/4)+6rem);
+}
+.row .col-3-of-4 {
+  width: calc(3*((100% -3*6rem)/4)+2*6rem);
+}
+.botall{
+        margin-bottom: 1.5rem;
+}
+.nonveg{
+    float: left;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 90px;
+  height: 34px;
+}
+
+.switch input {display:none;}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ca2222;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 20px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2ab934;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(55px);
+  -ms-transform: translateX(55px);
+  transform: translateX(55px);
+}
+
+/*------ ADDED CSS ---------*/
+.on
+{
+  display: none;
+}
+
+.on, .off
+{
+  color: white;
+  position: absolute;
+  transform: translate(-50%,-50%);
+  top: 50%;
+  left: 50%;
+  font-size: 10px;
+  font-family: Verdana, sans-serif;
+}
+
+input:checked+ .slider .on
+{display: block;}
+
+input:checked + .slider .off
+{display: none;}
+
+/*--------- END --------*/
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;}
+#recommendation{
+        background-color: wheat;
+        padding:25rem 0;
+}
+#review{
+        background-color: wheat;
+        padding:25rem 0;
+    }
+.heaing{
+        
+        font-weight: bold;
+        font-family:'Courier New', Courier, monospace;
+        font-size:4.5em ;
+        background: linear-gradient(to left,rgb(218, 36, 97),rgb(243, 121, 21));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        display: inline-block;
+        position:absolute;
+        top:300%;
+        left:30%;
+        transition: all 0.2s;
+    }
+    .heaing:hover{
+        transform: skewY(2deg) skewX(15deg) scale(1.1);
+        text-shadow: .5rem 1 rem 2 rem rgba(0,0,0,0.8);
+    }
+    .card{
+    perspective: 150rem;
+    -moz-perspective: 150rem;
+    position: relative;
+    height: 25rem;}
+    .card__side{
+        background-color: orangered;
+        color:white;
+        font-size: 2rem;
+        height: 20rem;
+        transition: all .8s;
+        position: absolute;
+        top: -30%;
+        left: 0;
+        width: 100%;
+        backface-visibility: hidden;
+        border-radius: 5px;
+        box-shadow: 0 1.5rem 4 rem rgba(0,0,0,0.15);}
+        
+        .card__side--back{
+            width:400px;
+            height: 400px;
+            background-image: linear-gradient(to right bottom,orange,red);
+            transform: rotateY(180deg);
+
+        }
+    .card:hover .card__side--front{
+        transform: rotateY(-180deg);
+    }
+    .card:hover .card__side--back{
+        transform: rotateY(0);
+    }
+    .search{
+        
+        position: absolute;
+        top: 320%;
+        left:70%;
+       
+    }
+    .search input{
+        
+        height:25px;
+        border:none;
+        padding: 0 5px 4px 5px;
+        font-size: 15px;
+        background-image: url(image/iconmonstr-magnifier-2-24.png);
+        background-repeat: no-repeat;
+        background-position: right center;
+    }
+    .heading-tert{
+        background: linear-gradient(to left,rgb(20, 9, 53),rgb(29, 80, 5));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        display: inline-block;
+        text-align: center;
+    }
+    .heang{
+        
+        font-weight: bold;
+        font-family:'Courier New', Courier, monospace;
+        font-size:4.5em ;
+        background: linear-gradient(to left,rgb(218, 36, 97),rgb(243, 121, 21));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        display: inline-block;
+        position:absolute;
+        top:500%;
+        left:35%;
+        transition: all 0.2s;
+    }
+    .heang:hover{
+        transform: skewY(2deg) skewX(15deg) scale(1.1);
+        text-shadow: .5rem 1 rem 2 rem rgba(0,0,0,0.8);
+    }
+    .stry p{
+        background: linear-gradient(to left,rgb(252, 8, 8),rgb(221, 16, 136));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        
+    }
+    .story p{
+        background: linear-gradient(to left,rgb(252, 8, 8),rgb(221, 16, 136));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        
+    }
+    .story{
+        width:75%;
+        margin:-40rem 0 0 10rem;
+        box-shadow:0 3rem 6rem rgba(0,0,0,0.1);
+        background-color: rgba(172, 123, 33, 0.575);
+        border-radius: 3px;
+        padding: 6rem;
+        padding-left: 9rem;
+        font-size: 1.2rem;
+        transform: skewX(-12deg);
+    }
+    .story__shape{
+        
+        width: 10rem;
+        height: 10rem;
+        float: left;
+        -webkit-shape-outside:circle(50% at 50% 50%);
+        shape-outside: circle(50% at 50% 50%);
+        -webkit-clip-path:circle(50% at 50% 50%);
+        clip-path:circle(50% at 50% 50%);
+        transform:translateY(-3rem) translateX(-3rem) skewX(12deg);
+    }
+    .story__img{
+
+        width:100%;
+    }
+    .story__text{
+        transform: skewX(12deg);
+    }
+    .stry{
+        width:75%;
+        margin:10rem 0 0 10rem;
+        box-shadow:0 3rem 6rem rgba(0,0,0,0.1);
+        background-color: rgba(172, 123, 33, 0.575);
+        border-radius: 3px;
+        padding: 6rem;
+        padding-left: 9rem;
+        font-size: 1.2rem;
+        transform: skewX(-12deg);
+    }
+    .heng{
+        
+        font-weight: bold;
+        font-family:'Courier New', Courier, monospace;
+        font-size:4.5em ;
+        background: linear-gradient(to left,rgb(218, 36, 97),rgb(243, 121, 21));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        display: inline-block;
+        position:absolute;
+        top:730%;
+        left:35%;
+        transition: all 0.2s;
+    }
+    .heng:hover{
+        transform: skewY(2deg) skewX(15deg) scale(1.1);
+        text-shadow: .5rem 1 rem 2 rem rgba(0,0,0,0.8);
+    }
+    .stry__shape{
+        
+        width: 10rem;
+        height: 10rem;
+        float: left;
+        -webkit-shape-outside:circle(50% at 50% 50%);
+        shape-outside: circle(50% at 50% 50%);
+        -webkit-clip-path:circle(50% at 50% 50%);
+        clip-path:circle(50% at 50% 50%);
+        transform:translateY(-3rem) translateX(-3rem) skewX(12deg);
+    }
+    .stry__img{
+
+        width:100%;
+    }
+    .stry__text{
+        transform: skewX(12deg);
+    }
+    .section-book{
+        padding: 15rem 0;
+        background-image: linear-gradient(to right bottom,rgb(190, 98, 199),rgba(61, 195, 228, 0.466));
+    }
+    .book{
+        background-image: linear-gradient(105deg,rgba(230, 224, 224, 0.9) 0%, rgba(230, 224, 224, 0.9) 50%, transparent 50%),url(image/best.jpg);
+        background-size: 100%;   
+        border-radius: 3px;
+        box-shadow: 0 1.5rem 4rem rgba(0,0,0,0.2);
+        height: 50rem;
+    }
+    .book__form{
+        width: 50%;
+        padding: 6rem;
+    }
+    .form__input{
+        font-size: 1.5rem;
+        font-family: inherit;
+        color: inherit;
+        padding: 1.5rem 2rem;
+        border-radius: 2px;
+        background-color: whitesmoke;
+        border:none;
+        border-bottom:3px solid transparent;
+        width:90%;
+        display: block;
+        transition: all 0.3s;
+        }
+    .form__input:focus{
+        outline: none;
+        box-shadow: 0 1rem 2rem rgba(0,0,0,0.1);
+        border-bottom: 3px solid green;
+    }
+    .form__input:focus:invalid{
+        border-bottom: 3px solid red;
+    }
+    .form__input::-webkit-input-placeholder{
+        color:gray;
+    }
+    .form__label{
+        font-size: 1.2rem;
+        font-weight: 700;
+        margin-left: 2rem;
+        margin-top: 0.7rem;
+        display: block;
+        transition: all 0.3s;
+    }
+    .form__input:placeholder-shown + .form__label{
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-4rem);
+    }
+    .btnn,.btnn:link,.btnn:visited{
+        
+        text-decoration: none;
+        padding: 15px 40px;
+        display: inline-block;
+        border-radius: 100px;
+        transition:all 0.2s;
+        position: relative;
+    }
+    .btnn-1{
+        margin:100px;
+        position:absolute;
+        
+        background-color: rgb(202, 95, 68);
+        color:rgb(19, 18, 18) ;
+    }
+    .btnn:hover{
+        transform:translateY(-3px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+    .btnn:active{
+        transform:translateY(-1px);
+        box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+    }
+    .btnn::after{
+        content:" ";
+        display: inline-block;
+        height:100%;
+        width:100%;
+        border-radius: 100px;
+        position:absolute;
+        top:0;
+        left:0;
+        z-index:-1;
+        transition: all .4s;
+    }
+    .btnn-1::after{
+        background-color:rgb(202, 95, 68) ;
+    }
+    .btnn:hover::after{
+        transform:scaleX(1.4) scaleY(1.6);
+        opacity:0;
+    }
+    .footer{
+        padding: 5rem 0;
+        background-color: gray;
+    }
+    .footer__list ul{
+        display: inline;
+        list-style: none;
+        
+    }
+    .footer__list li{
+        display: inline-block;
+        padding: 30px;
+        cursor:pointer;
+        font-size: 2em;
+        color:rgb(128, 90, 20);
+       
+    }
+    
+    .btne:link,.btne:visited{
+        
+        text-decoration: none;
+        color: rgb(110, 78, 19);
+        display: inline-block;
+        border-radius: 100px;
+        transition:all 0.2s;
+        position: relative;
+    }
+  
+    
+ </style>
+<body>
+    <div class="navbar">
+        <a name="navbar"></a>
+        <ul>
+            <li><a href="#navbar" class="btne btne-1" >Home</a>
+                
+            </li>
+            <li><a href="#speciality" class="btne btne-1">Specialities</a>
+            </li>
+            <li><a href="#recommendation" class="btne btne-1">Reccomendations</a>
+            </li>
+            <li><a href="#review" class="btne btne-1">Review</a>
+            </li>
+        </ul>
+        <img class="headimg" src="image/food.jpg"/>
+        <div class="logo">
+            <img src="image/food1.jpg" height="100em">
+        </div>
+    </div>
+    <div class="content">
+            <h1>Scarlet</h1>
+        
+            <p>There is a place like home</p>
+            <a href="#recommendation" class="btn btn-1">Check our Reccomendations</a>
+            
+    </div>
+
+    <main>
+        <section id="speciality">
+            <a name="speciality"></a>
+            <h2 class=heading>
+                SPECIALITY
+            </h2>
+            <section class="spec">
+                <div class="row">
+                    <div class="col-1-of-4">
+                        <div class="feature-box">
+                            <img src="image/pancake.jpg" width="200px" height="200px">
+                            <h3 class="heading-tertiary botall">FRENCH PANCAKE</h3>
+                            <img class="nonveg" src="image/veg.png"width="30px" height="30px">
+                            <label class="switch">
+                                <input type="checkbox" id="togBtn">
+                                <div class="slider round">
+                                 <!--ADDED HTML -->
+                                 <span class="on">ADDED</span>
+                                 <span class="off">ADD+</span>
+                                 <!--END-->
+                                </div>
+                               </label>
+                        </div>
+                    </div>
+                
+                
+                    <div class="col-1-of-4">
+                        <div class="feature-box">
+                            <img src="image/bakedpotato.jpg" width="200px" height="200px">
+                            <h3 class="heading-tertiary botall">BAKED POTATO</h3>
+                            <img class="nonveg" src="image/veg.png"width="30px" height="30px">
+                            <label class="switch">
+                                <input type="checkbox" id="togBtn">
+                                <div class="slider round">
+                                 <!--ADDED HTML -->
+                                 <span class="on">ADDED</span>
+                                 <span class="off">ADD+</span>
+                                 <!--END-->
+                                </div>
+                               </label>
+                        </div>
+                    </div>
+                
+                
+                    <div class="col-1-of-4">
+                        <div class="feature-box">
+                            <img src="image/pizza.jpg" width="200px" height="200px">
+                            <h3 class="heading-tertiary botall">OLIVER'S PIZZA</h3>
+                            <img class="nonveg" src="image/veg.png"width="30px" height="30px">
+                            <label class="switch">
+                                <input type="checkbox" id="togBtn">
+                                <div class="slider round">
+                                 <!--ADDED HTML -->
+                                 <span class="on">ADDED</span>
+                                 <span class="off">ADD+</span>
+                                 <!--END-->
+                                </div>
+                               </label>
+                        </div>
+                        
+                    </div>
+                
+                
+                    <div class="col-1-of-4">
+                        <div class="feature-box">
+                            <img src="image/sushi.jpg" width="200px" height="200px">
+                            <h3 class="heading-tertiary botall">URAMAKI SUSHI</h3>
+                            <img class="nonveg" src="image/non-veg.png"width="30px" height="30px">
+                            <label class="switch">
+                                <input type="checkbox" id="togBtn">
+                                <div class="slider round">
+                                 <!--ADDED HTML -->
+                                 <span class="on">ADDED</span>
+                                 <span class="off">ADD+</span>
+                                 <!--END-->
+                                </div>
+                               </label>
+                        </div>
+                    </div>
+                </div>
+                
+        </section>
+        </section>
+        <section id="recommendation">
+            <h2 class=heaing>
+                RECOMMENDATIONS
+                
+            </h2>
+            <div class="search">
+                <input type="text" placeholder="search">
+            </div>
+            
+            <div class="reco">
+                <div class="row ">
+                    <div class="col-1-of-3">
+                        <div class="card">
+                            <div class="card__side card__side--front">
+                                <img src="image/steak.jpg" width="400px" height="400px">
+                            </div> 
+                            <div class="card__side card__side--back">
+                                <h3 class="heading-tert botall">ROYAL STEAK</h3>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-1-of-3 ">
+                        <div class="card">
+                            <div class="card__side card__side--front">
+                                <img src="image/icecream.jpg" width="400px" height="400px">
+                            </div> 
+                            <div class="card__side card__side--back">
+                                <h3 class="heading-tert botall">ICECREAM CAKE</h3>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-1-of-3 ">
+                        <div class="card">
+                            <div class="card__side card__side--front">
+                                <img src="image/vegkur.jpg" width="400px" height="400px">
+                            </div> 
+                            <div class="card__side card__side--back">
+                                <h3 class="heading-tert botall">VEG. KURKURE</h3>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-1-of-3 ">
+                        <div class="card">
+                            <div class="card__side card__side--front">
+                                <img src="image/cake.jpg" width="400px" height="400px">
+                            </div> 
+                            <div class="card__side card__side--back">
+                                <h3 class="heading-tert botall">BLUEBERRY CHEESECAKE</h3>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-1-of-3 ">
+                        <div class="card">
+                            <div class="card__side card__side--front">
+                                <img src="image/wanton.jpg" width="400px" height="400px">
+                            </div> 
+                            <div class="card__side card__side--back">
+                                <h3 class="heading-tert ">FRIED WANTON</h3>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-1-of-3">
+                        <div class="card">
+                            <div class="card__side card__side--front">
+                                <img src="image/pasta.jpg" width="400px" height="400px">
+                            </div> 
+                            <div class="card__side card__side--back">
+                                <h3 class="heading-tert botall">KREYZ'S PASTA</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="review">
+            <h2 class=heang>
+                REVIEWS
+            </h2>
+                <div class="story">
+                    <figure class="story__shape">
+                            <img src="image/p1.png" class="story__img">
+                    </figure>
+                    <div class="story__text">
+                        <h3 class="heading-tert">I had the best experience ever with my family</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Venenatis a condimentum vitae sapien pellentesque habitant morbi tristique senectus. Elementum tempus egestas sed sed. Diam quis enim lobortis scelerisque fermentum dui faucibus.</p>
+                    
+                    </div>   
+                </div>
+                <div class="stry">
+                    <figure class="stry__shape">
+                            <img src="image/p2.jpg" class="story__img">
+                    </figure>
+                    <div class="stry__text">
+                        <h3 class="heading-tert">One of the best food I have ever had</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Venenatis a condimentum vitae sapien pellentesque habitant morbi tristique senectus. Elementum tempus egestas sed sed. Diam quis enim lobortis scelerisque fermentum dui faucibus.</p>
+                    
+                    </div>   
+                </div>
+        </section>
+        <section class="section-book">
+            <div class="book">
+                <div class="book__form">
+                    <form action="#" class="form">
+                        <h2 class="heng">
+                            REVIEW FORM
+                        </h2>
+                        <div class="form__group">
+                            <input type="text" class="form__input" placeholder="Full Name" id="name" required>
+                            <label for="name" class="form__label">Full name</label>
+                        </div>
+                        <div class="form__group">
+                            <input type="email" class="form__input" placeholder="Email address" id="email" required>
+                            <label for="email" class="form__label">Email address</label>
+                        </div>
+                        <div class="form__group">
+                            <input type="text" class="form__input" placeholder="Review" id="name" required>
+                            <label for="text" class="form__label">Review</label>
+                        </div>
+                        <div class="form__group">
+                            <button class="btnn btnn-1">SUBMIT</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </section>
+    </main>
+    <footer class="footer">
+            
+                <div class="footer__list">
+                    <ul>
+                        <li class=" footer__item"><a href="http://www.google.com" class="footer__link">
+                            <img src="image/utube.png">
+                        </a></li>
+                        <li class=" footer__item"><a href="http://www.google.com" class="footer__link">
+                            <img src="image/twit.png">
+                        </a></li>
+                        <li class=" footer__item"><a href="http://www.google.com" class="footer__link">
+                            <img src="image/fb.png">
+                        </a></li>
+                        <li class=" footer__item"><a href="http://www.google.com" class="footer__link">
+                            <img src="image/insta.png">
+                        </a></li>
+                    </ul>
+                    <a href="#navbar" class="btnn btnn-1">Return to top</a>
+                
+        </div>
+        
+    </footer>
+
+</body>
+</head>
+</html>
